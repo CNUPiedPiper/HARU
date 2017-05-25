@@ -1,13 +1,11 @@
 #-*- coding: utf-8 -*-
 import gensim
 import sys
-from os.path import abspath
+import os.path
 
 class Word2Vec:
     def __init__(self):
-        reload(sys)
-        sys.setdefaultencoding('utf-8')
-        self.model = gensim.models.Word2Vec.load(abspath('../word2vec/res/model'))
+        self.model = gensim.models.Word2Vec.load(''.join([os.path.dirname(__file__), '/res/model']))
 
     def word2vec(self, word):
         if isinstance(word, list):

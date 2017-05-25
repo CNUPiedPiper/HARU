@@ -5,8 +5,6 @@ import sys
 class Parser:
 	def __init__(self):
 		self.twitter = Twitter()
-		reload(sys)
-		sys.setdefaultencoding('utf-8')
 
 	def parse_sentence(self, sentence):
 		result = self.twitter.pos(sentence.decode('utf-8'), norm=True, stem=True)

@@ -1,3 +1,5 @@
+#-*- coding: utf-8 -*-
+
 def no_answer(words):
     return '적절한 응답을 찾을 수 없습니다'
 

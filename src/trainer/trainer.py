@@ -4,9 +4,7 @@ import codecs
 from os import listdir, makedirs
 from os.path import abspath, exists
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-sys.path.insert(0, abspath('../word2vec'))
+sys.path.insert(0, abspath('../sentence2vec'))
 import parser
 import word2vec
 

@@ -1,9 +1,6 @@
-#-*- coding: utf-8 -*-
 from os.path import abspath
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-sys.path.insert(0, abspath('../word2vec'))
+sys.path.insert(0, abspath('../sentence2vec'))
 import numpy as np
 import modelbuilder as mb
 import parser
