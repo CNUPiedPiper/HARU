@@ -3,12 +3,12 @@ import numpy as np
 
 class ModelBuilder:
     def __init__(self, model_number):
-        self.w_hy = np.loadtxt( abspath(''.join([os.path.dirname(__file__), '../model/', model_number, '/w:0'])) ).reshape([1])
-        self.b_hy = np.loadtxt( abspath(''.join([os.path.dirname(__file__), '../model/', model_number, '/b:0'])) ).reshape([1]) 
-        temp = np.loadtxt( abspath(''.join([os.path.dirname(__file__), '../model/', model_number, '/rnn/basic_rnn_cell/weights:0'])) ).reshape([101, 1])
+        self.w_hy = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/w:0']) ).reshape([1])
+        self.b_hy = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/b:0']) ).reshape([1]) 
+        temp = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/basic_rnn_cell/weights:0']) ).reshape([101, 1])
         self.rnn_w_xh = temp[1:, :]
         self.rnn_w_hh = temp[1, :]
-        self.rnn_b_xh = np.loadtxt( abspath(''.join([os.path.dirname(__file__), '../model/', model_number, '/rnn/basic_rnn_cell/biases:0'])) ).reshape([1])
+        self.rnn_b_xh = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/basic_rnn_cell/biases:0']) ).reshape([1])
     
     def run(self, input_vector, status):
         input_vector = np.reshape(input_vector, [1, 100])
