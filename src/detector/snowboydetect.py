@@ -116,7 +116,7 @@ class SnowboyDetect(_object):
         return _snowboydetect.SnowboyDetect_Reset(self)
 
     def RunDetection(self, *args):
-        print('Listening... Press Ctrl+C to exit', time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
+        print('[HARU] Listening... Press Ctrl+C to exit', time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time())))
         return _snowboydetect.SnowboyDetect_RunDetection(self, *args)
 
     def SetSensitivity(self, sensitivity_str):

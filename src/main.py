@@ -56,11 +56,11 @@ class Main:
         self.speaker = tts.tts(naver_id, naver_secret)
 
     def main_flow(self):
-        #self.detector.terminate_detection()
-        print('In Main flow..')
-        print('Recording now.. Ask a question now') 
-        #recording.record_audio()
-        print('Record Complete')
+        self.detector.terminate_detection()
+
+        print('[HARU] In Main flow..')
+        print('[HARU] Recording now.. Ask a question now') 
+        recording.record_audio()
 
         answer_text = response[0](None)
         self.speaker.get_speech_file_path(answer_text)
@@ -69,7 +69,6 @@ class Main:
     def run(self):
         print('run')
         self.detector.start_detection(self.main_flow)
-        self.detector.terminate_detection()
 
 if __name__ == "__main__":
     Main().run()
