@@ -1,8 +1,10 @@
+#-*- coding: utf-8 -*-
 from os import listdir
 from os.path import abspath, dirname
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
+import numpy as np
 import functions
 import types
 from builder import modelbuilder
@@ -22,20 +24,20 @@ class Main:
                 self.model_set.append(modelbuilder.ModelBuilder(f))
 
         def classify(self, input_sentence):
-            input_vector = np.array(s2v.sentence2vec(input_sentence))
+            input_vector = np.array(self.s2v.sentence2vec(input_sentence))
             
             result = np.array([])
-            for model in model_set:
+            for model in self.model_set:
                 status = 0
                 for i in xrange(input_vector.shape[0]):
                     prop, status = model.run(input_vector[i, :], status)
-                np.append(result, prop)
-			
+                result = np.append(result, prop)
+
             max_index = np.argmax(result)
-			if result[max_index] < 0.5:
-				return 0
-			else:
-				return max_index + 1
+            if result[max_index] < 0.5:
+                return 0
+            else:
+                return max_index + 1
 
     def __init__(self):
         self.classifier = self.Classifier()
@@ -55,11 +57,12 @@ class Main:
     def main_flow(self):
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
-        temp = self.rec.record_audio()
-        transcribe_streaming.transcribe_streaming(temp)
+        audio_buffer = self.rec.record_audio()
+        sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
         self.rec.close_buf()
-
-        answer_text = self.response[0](None)
+        #sentence = u'오늘 날씨는 어때'
+        response_number = self.classifier.classify(sentence)
+        answer_text = self.response[response_number](None)
         self.speaker.speak(answer_text)
         self.run()
 

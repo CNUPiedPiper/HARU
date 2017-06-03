@@ -27,7 +27,7 @@ class Recorder:
    	             frames_per_buffer=self.CHUNK,
 					input_device_index=2)
 
-		print "[HARU] Recording audio..."
+		print("[HARU] Recording audio...")
 
 		frames = array('h')
 		minimum = 0
@@ -53,7 +53,7 @@ class Recorder:
 				else:
 					break
 
-		print "[HARU] Recording is done\n" 
+		print("[HARU] Recording is done")
 
 		stream.stop_stream()
 		stream.close()
