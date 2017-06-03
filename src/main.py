@@ -7,6 +7,12 @@ import functions
 import types
 from builder import modelbuilder
 from sentence2vec import sentence2vec
+from recorder import recorder
+from geoip import geoip
+from detector import hotword
+from speaker import tts
+from speech_recognition import transcribe_streaming
+import configparser
 
 class Main:
     class Classifier:
@@ -33,9 +39,37 @@ class Main:
         self.response = [functions.__dict__.get(func) for func in dir(functions)
                            if isinstance(functions.__dict__.get(func), types.FunctionType)]
         self.response = self.response[::-1]
+
+        self.geo = geoip.Geoip().get_geo()
+        self.city = self.geo[0]
+        self.lat = self.geo[1]
+        self.lon = self.geo[2]
+
+        self.config = configparser.RawConfigParser()
+        self.config.read('config.ini')
+        weather_key = self.config.get('WEATHER', 'key')
+        mise_key = self.config.get('MISE', 'key')
+        naver_id = self.config.get('NAVER', 'id')
+        naver_secret = self.config.get('NAVER', 'secret')
+
+        self.detector = hotword.hotword()
+        self.speaker = tts.tts(naver_id, naver_secret)
+
+    def main_flow(self):
+        #self.detector.terminate_detection()
+        print('In Main flow..')
+        print('Recording now.. Ask a question now') 
+        #recording.record_audio()
+        print('Record Complete')
+
+        answer_text = response[0](None)
+        self.speaker.get_speech_file_path(answer_text)
+        self.run()
+
     def run(self):
         print('run')
+        self.detector.start_detection(self.main_flow)
+        self.detector.terminate_detection()
 
 if __name__ == "__main__":
-    m = Main()
-    m.run()
+    Main().run()

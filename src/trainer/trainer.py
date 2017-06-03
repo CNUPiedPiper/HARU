@@ -3,7 +3,7 @@ import numpy as np
 import codecs
 from os import listdir, makedirs
 from os.path import abspath, exists, dirname
-from sentence2vec import sentence2vec
+from ..sentence2vec import sentence2vec
 
 class Trainer:
     def __init__(self):
