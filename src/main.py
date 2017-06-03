@@ -31,8 +31,12 @@ class Main:
                 for i in xrange(input_vector.shape[0]):
                     prop, status = model.run(input_vector[i, :], status)
                 np.append(result, prop)
-
-            return np.argmax(result)
+			
+            max_index = np.argmax(result)
+			if result[max_index] < 0.5:
+				return 0
+			else:
+				return max_index + 1
 
     def __init__(self):
         self.classifier = self.Classifier()

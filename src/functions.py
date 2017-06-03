@@ -5,7 +5,7 @@ import datetime
 import configparser
 
 def no_answer(words):
-    return '적절한 응답을 찾을 수 없습니다'
+    return u'적절한 응답을 찾을 수 없습니다'
 
 def function1(words):
     config = configparser.RawConfigParser()
@@ -26,4 +26,4 @@ def function3(words):
 
 def function4(words):
     now = datetime.datetime.now()
-    return '지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
+    return u'지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
