@@ -2,13 +2,12 @@
 import os
 import sys
 import urllib2
-import datetime
 import pygame
 from urllib2 import urlopen, Request
 from urlparse import urlparse
 from pygame import mixer, time
 
-class tts:
+class Text2Speech:
     def __init__(self, c_id, c_secret):
         self.client_id = c_id
         self.client_secret = c_secret
@@ -35,9 +34,7 @@ class tts:
         if(rescode == 200):
             print("Saved TTS to MP3")
             response_body = response.read()
-            now = datetime.datetime.now()
-            nowDatetime = now.strftime('%Y%m%d_%H:%M:%S')
-            filename = str(nowDatetime) + '.mp3'
+            filename = '.response.mp3'
             
             with open(filename, 'wb') as f:
                 f.write(response_body)
@@ -47,4 +44,3 @@ class tts:
             
         else:
             print("Error Code:" + rescode)
-

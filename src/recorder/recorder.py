@@ -57,9 +57,9 @@ class Recorder:
 
 		stream.stop_stream()
 		stream.close()
-		p.terminate()
+		#p.terminate()
 
-		self.f = open("sound.raw", "w+")
+		self.f = open(".sound.raw", "w+")
 		frames.tofile(self.f)
 		self.f.write('\0')
 		self.f.seek(0)
