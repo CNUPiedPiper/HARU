@@ -38,8 +38,7 @@ class Main:
         self.classifier = self.Classifier()
         self.response = [functions.__dict__.get(func) for func in dir(functions)
                            if isinstance(functions.__dict__.get(func), types.FunctionType)]
-        self.response = self.response[::-1]
-
+        self.response = self.response[::-1] 
         self.geo = geoip.Geoip().get_geo()
         self.city = self.geo[0]
         self.lat = self.geo[1]
@@ -63,7 +62,7 @@ class Main:
         recording.record_audio()
 
         answer_text = response[0](None)
-        self.text2speech.speak(answer_text)
+        self.speaker.speak(answer_text)
         self.run()
 
     def run(self):
