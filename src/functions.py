@@ -3,7 +3,7 @@ from apibucket import weather, mise, issue, geoip
 import datetime
 import configparser
 
-def no_answer(words):
+def function0(words):
     return u'적절한 응답을 찾을 수 없습니다'
 
 def function1(words):

@@ -43,7 +43,6 @@ class Main:
         self.classifier = self.Classifier()
         self.response = [functions.__dict__.get(func) for func in dir(functions)
                            if isinstance(functions.__dict__.get(func), types.FunctionType)]
-        self.response = self.response[::-1] 
 
         self.config = configparser.RawConfigParser()
         self.config.read('config.ini')
