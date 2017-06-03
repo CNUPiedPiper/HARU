@@ -10,7 +10,7 @@ from sentence2vec import sentence2vec
 from recorder import recorder
 from geoip import geoip
 from detector import hotword
-from speaker import tts
+from text2speech import text2speech
 from speech_recognition import transcribe_streaming
 import configparser
 
@@ -53,7 +53,7 @@ class Main:
         naver_secret = self.config.get('NAVER', 'secret')
 
         self.detector = hotword.hotword()
-        self.speaker = tts.tts(naver_id, naver_secret)
+        self.speaker = text2speech.text2speech(naver_id, naver_secret)
 
     def main_flow(self):
         self.detector.terminate_detection()
@@ -63,7 +63,7 @@ class Main:
         recording.record_audio()
 
         answer_text = response[0](None)
-        self.speaker.get_speech_file_path(answer_text)
+        self.text2speech.speak(answer_text)
         self.run()
 
     def run(self):

@@ -8,7 +8,7 @@ from urllib2 import urlopen, Request
 from urlparse import urlparse
 from pygame import mixer, time
 
-class tts:
+class text2speech:
     def __init__(self, c_id, c_secret):
         self.client_id = c_id
         self.client_secret = c_secret
@@ -22,7 +22,7 @@ class tts:
         while mixer.music.get_busy():
             time.Clock().tick(100)
 
-    def get_speech_file_path(self, input_text):
+    def speak(self, input_text):
         data = "speaker=mijin&speed=0&text=" + unicode(input_text);
 
         q = Request("https://openapi.naver.com/v1/voice/tts.bin")
