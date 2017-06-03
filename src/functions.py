@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*-
-from apibucket import weather, mise, issue 
-from geoip import geoip
+from apibucket import weather, mise, issue, geoip
 import datetime
 import configparser
 

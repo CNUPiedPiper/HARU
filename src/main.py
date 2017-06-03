@@ -8,7 +8,6 @@ import types
 from builder import modelbuilder
 from sentence2vec import sentence2vec
 from recorder import recorder
-from geoip import geoip
 from detector import hotword
 from text2speech import text2speech
 from speech_recognition import transcribe_streaming
@@ -39,15 +38,9 @@ class Main:
         self.response = [functions.__dict__.get(func) for func in dir(functions)
                            if isinstance(functions.__dict__.get(func), types.FunctionType)]
         self.response = self.response[::-1] 
-        self.geo = geoip.Geoip().get_geo()
-        self.city = self.geo[0]
-        self.lat = self.geo[1]
-        self.lon = self.geo[2]
 
         self.config = configparser.RawConfigParser()
         self.config.read('config.ini')
-        weather_key = self.config.get('WEATHER', 'key')
-        mise_key = self.config.get('MISE', 'key')
         naver_id = self.config.get('NAVER', 'id')
         naver_secret = self.config.get('NAVER', 'secret')
 
