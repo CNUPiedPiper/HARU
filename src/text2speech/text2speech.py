@@ -21,7 +21,7 @@ class Text2Speech:
         while mixer.music.get_busy():
             time.Clock().tick(100)
 
-    def get_speech_file_path(self, input_text):
+    def speak(self, input_text):
         data = "speaker=mijin&speed=0&text=" + unicode(input_text);
 
         q = Request("https://openapi.naver.com/v1/voice/tts.bin")

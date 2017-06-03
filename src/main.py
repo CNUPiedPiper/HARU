@@ -38,8 +38,7 @@ class Main:
         self.classifier = self.Classifier()
         self.response = [functions.__dict__.get(func) for func in dir(functions)
                            if isinstance(functions.__dict__.get(func), types.FunctionType)]
-        self.response = self.response[::-1]
-
+        self.response = self.response[::-1] 
         self.geo = geoip.Geoip().get_geo()
         self.city = self.geo[0]
         self.lat = self.geo[1]
@@ -57,8 +56,6 @@ class Main:
         self.rec = recorder.Recorder()
 
     def main_flow(self):
-        #self.detector.terminate_detection()
-
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
         temp = self.rec.record_audio()
@@ -66,8 +63,8 @@ class Main:
         self.rec.close_buf()
 
         answer_text = self.response[0](None)
-        self.speaker.get_speech_file_path(answer_text)
-        #self.run()
+        self.speaker.speak(answer_text)
+        self.run()
 
     def run(self):
         print('run')
