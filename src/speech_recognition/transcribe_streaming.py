@@ -39,10 +39,10 @@ def transcribe_streaming(audio_file):
     alternatives = audio_sample.streaming_recognize('ko-KR')
 
     for alternative in alternatives:
-        print('Finished: {}'.format(alternative.is_final))
-        print('Stability: {}'.format(alternative.stability))
-        print('Confidence: {}'.format(alternative.confidence))
-        print('Transcript: ', alternative.transcript)
+        print('[HARU] Speech recognition finished: {}'.format(alternative.is_final))
+        print('[HARU] Stability: {}'.format(alternative.stability))
+        print('[HARU] Confidence: {}'.format(alternative.confidence))
+        print(''.join(['[HARU] Transcript: ', alternative.transcript]))
         return alternative.transcript
 
 

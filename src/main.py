@@ -54,20 +54,24 @@ class Main:
 
         self.detector = hotword.hotword()
         self.speaker = tts.tts(naver_id, naver_secret)
+        self.rec = recorder.Recorder()
 
     def main_flow(self):
         self.detector.terminate_detection()
 
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
-        recording.record_audio()
+        temp = self.rec.record_audio()
+        transcribe_streaming.transcribe_streaming(temp)
+        self.rec.close_buf()
 
-        answer_text = response[0](None)
+        answer_text = self.response[0](None)
         self.speaker.get_speech_file_path(answer_text)
         self.run()
 
     def run(self):
         print('run')
+        #while True:
         self.detector.start_detection(self.main_flow)
 
 if __name__ == "__main__":

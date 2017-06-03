@@ -27,7 +27,7 @@ class Recorder:
    	             frames_per_buffer=self.CHUNK,
 					input_device_index=2)
 
-		print "* Recording audio..."
+		print "[HARU] Recording audio..."
 
 		frames = array('h')
 		minimum = 0
@@ -53,21 +53,21 @@ class Recorder:
 				else:
 					break
 
-		print "* done\n" 
+		print "[HARU] Recording is done\n" 
 
 		stream.stop_stream()
 		stream.close()
 		p.terminate()
 
 		self.f = open("sound.raw", "w+")
-		frames.tofile(f)
+		frames.tofile(self.f)
 		self.f.write('\0')
 		self.f.seek(0)
 		return self.f
 	
 	def close_buf(self):
 		self.f.seek(0)
-		self.f.turncate()
+		self.f.truncate()
 		self.f.close()
 
 if __name__ == "__main__":
