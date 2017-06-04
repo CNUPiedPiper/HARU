@@ -23,7 +23,7 @@ def get_issue():
                     break
 
                 data = key.contents[0].replace(' ','')
-                issue_data.extend([unicode(data)])
+                issue_data.extend([unicode(data)], ',')
                 top = top + 1
 
             issue_data.extend([u"등 이있습니다."])
