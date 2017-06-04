@@ -1,4 +1,5 @@
-#-*- coding: utf-8 -*- from os import listdir
+#-*- coding: utf-8 -*- 
+from os import listdir
 from os.path import abspath, dirname
 import sys
 reload(sys)
