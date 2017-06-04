@@ -3,7 +3,7 @@ import numpy as np
 import codecs
 from os import listdir, makedirs
 from os.path import abspath, exists, dirname
-from ..sentence2vec import sentence2vec
+from sentence2vec import sentence2vec
 
 class Trainer:
     def __init__(self):
@@ -86,7 +86,7 @@ class Trainer:
         b_output = tf.Variable(tf.random_normal([1]), name='b')
     
         hypothesis = output * W_output + b_output
-        cost = tf.nn.sigmoid_cross_entropy_with_logits(logits=hypothesis, labels=label)
+        cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=hypothesis, labels=label))
         train = tf.train.AdamOptimizer(learning_rate=0.03).minimize(cost)
         
     #    prob = tf.sigmoid(hypothesis)
