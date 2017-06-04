@@ -27,11 +27,13 @@ class Main:
             input_vector = np.array(self.s2v.sentence2vec(input_sentence))
             
             result = np.array([])
+            i = 1
             for model in self.model_set:
                 status = 0
                 for i in xrange(input_vector.shape[0]):
                     prop, status = model.run(input_vector[i, :], status)
                 result = np.append(result, prop)
+                print(''.join(['[HARU] Model', str(i), ' :: ', str(result)]))
 
             max_index = np.argmax(result)
             if result[max_index] < 0.5:
@@ -57,18 +59,20 @@ class Main:
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
         audio_buffer = self.rec.record_audio()
+        print('[HARU] Now transcribe the audio buffer to text')
         sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
         self.rec.close_buf()
         #sentence = u'오늘 날씨는 어때'
         response_number = self.classifier.classify(sentence)
+        print('[HARU] Getting the result text from API')
         answer_text = self.response[response_number](None)
         self.speaker.speak(answer_text)
         self.run()
 
     def run(self):
-        print('run')
         while True:
             self.detector.start_detection(self.main_flow)
 
 if __name__ == "__main__":
+    print('[HARU] Starting the HARU')
     Main().run()
