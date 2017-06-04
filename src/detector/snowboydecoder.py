@@ -32,6 +32,9 @@ class RingBuffer(object):
         self._buf.clear()
         return tmp
 
+    def clear(self):
+        self._buf.clear()
+
 #def play_audio_file(fname=DETECT_DING):
 #    """Simple callback function to play a wave file. By default it plays
 #    a Ding sound.
@@ -124,6 +127,7 @@ class HotwordDetector(object):
             play_data = chr(0) * len(in_data)
             return play_data, pyaudio.paContinue
 
+        self.ring_buffer.clear()
         self.audio = pyaudio.PyAudio()
         self.stream_in = self.audio.open(
             input=True, output=False,

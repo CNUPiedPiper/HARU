@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+#-*- coding: utf-8 -*- 
 from os import listdir
 from os.path import abspath, dirname
 import sys
@@ -29,11 +29,12 @@ class Main:
             result = np.array([])
             model_number = 1
             for model in self.model_set:
-                status = 0
+                status_1 = np.zeros([100])
+                status_2 = np.zeros([100])
                 for i in xrange(input_vector.shape[0]):
-                    prop, status = model.run(input_vector[i, :], status)
+                    prop, status_1, status_2 = model.run(input_vector[i, :], status_1, status_2)
                 result = np.append(result, prop)
-                print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number])]))
+                print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number-1])]))
                 model_number = model_number + 1
 
             max_index = np.argmax(result)
@@ -71,8 +72,7 @@ class Main:
         self.run()
 
     def run(self):
-        while True:
-            self.detector.start_detection(self.main_flow)
+        self.detector.start_detection(self.main_flow)
 
 if __name__ == "__main__":
     print('[HARU] Starting the HARU')

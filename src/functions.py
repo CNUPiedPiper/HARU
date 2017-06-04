@@ -12,17 +12,17 @@ def function1(words):
     w_key = config.get('WEATHER', 'key')
     geo = geoip.Geoip().get_geo()
     return weather.get_weather(w_key, geo[1], geo[2], 0)
-
-def function2(words):
+'''
+def function4(words):
     config = configparser.RawConfigParser()
     config.read('config.ini')
     m_key = config.get('MISE', 'key')
     geo = geoip.Geoip().get_geo()
     return mise.get_mise(m_key, geo[0])
-
-def function3(words):
+'''
+def function2(words):
     return issue.get_issue()
 
-def function4(words):
+def function3(words):
     now = datetime.datetime.now()
     return u'지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
