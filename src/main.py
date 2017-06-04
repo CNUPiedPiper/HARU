@@ -34,7 +34,7 @@ class Main:
                 for i in xrange(input_vector.shape[0]):
                     prop, status_1, status_2 = model.run(input_vector[i, :], status_1, status_2)
                 result = np.append(result, prop)
-                print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number])]))
+                print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number-1])]))
                 model_number = model_number + 1
 
             max_index = np.argmax(result)
