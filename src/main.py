@@ -27,13 +27,14 @@ class Main:
             input_vector = np.array(self.s2v.sentence2vec(input_sentence))
             
             result = np.array([])
-            i = 1
+            model_number = 1
             for model in self.model_set:
                 status = 0
                 for i in xrange(input_vector.shape[0]):
                     prop, status = model.run(input_vector[i, :], status)
                 result = np.append(result, prop)
-                print(''.join(['[HARU] Model', str(i), ' :: ', str(result)]))
+                print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number])]))
+                model_number = model_number + 1
 
             max_index = np.argmax(result)
             if result[max_index] < 0.5:
