@@ -17,7 +17,7 @@ class Trainer:
                 
         temp_set = np.zeros([1, 10, 100])
         len_set = []
-        for sentence in sentences:    
+        for sentence in sentences: 
             temp = np.array(sentence).reshape([1, -1, 100])
 
             len_set.append(temp.shape[1])
@@ -75,17 +75,20 @@ class Trainer:
         X = tf.placeholder(tf.float32, [None, 10, 100])
         Y = tf.placeholder(tf.float32, [None, 10])
     
-        cell = tf.contrib.rnn.BasicRNNCell(num_units=1)
+        cell = tf.contrib.rnn.MultiRNNCell([tf.contrib.rnn.BasicRNNCell(num_units=100) for _ in xrange(2)])
+        print(cell)
         rnn_outputs, states = tf.nn.dynamic_rnn(cell,
                                                 X,
                                                 initial_state=cell.zero_state(batch_size, tf.float32),
                                                 dtype=tf.float32)
-        output = tf.reshape(rnn_outputs, [-1, 1])
-        label = tf.reshape(Y, [-1, 1])
-        W_output = tf.Variable(tf.random_normal([1]), name='w')
+        print(rnn_outputs)
+        print(states)
+        W_output = tf.Variable(tf.random_normal([100, 1]), name='w')
         b_output = tf.Variable(tf.random_normal([1]), name='b')
     
-        hypothesis = output * W_output + b_output
+        output = tf.reshape(tf.matmul(tf.reshape(rnn_outputs, [-1, 100]), W_output), [-1, 10, 1]) + b_output
+        hypothesis = tf.reshape(output, [-1, 1])
+        label = tf.reshape(Y, [-1, 1])
         cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=hypothesis, labels=label))
         train = tf.train.AdamOptimizer(learning_rate=0.03).minimize(cost)
         

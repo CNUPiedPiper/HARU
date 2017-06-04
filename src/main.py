@@ -29,9 +29,10 @@ class Main:
             result = np.array([])
             model_number = 1
             for model in self.model_set:
-                status = 0
+                status_1 = np.zeros([100])
+                status_2 = np.zeros([100])
                 for i in xrange(input_vector.shape[0]):
-                    prop, status = model.run(input_vector[i, :], status)
+                    prop, status_1, status_2 = model.run(input_vector[i, :], status_1, status_2)
                 result = np.append(result, prop)
                 print(''.join(['[HARU] Model', str(model_number), ' :: ', str(result[model_number])]))
                 model_number = model_number + 1

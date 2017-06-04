@@ -3,18 +3,20 @@ import numpy as np
 
 class ModelBuilder:
     def __init__(self, model_number):
-        self.w_hy = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/w:0']) ).reshape([1])
-        self.b_hy = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/b:0']) ).reshape([1]) 
-        temp = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/basic_rnn_cell/weights:0']) ).reshape([101, 1])
-        self.rnn_w_xh = temp[1:, :]
-        self.rnn_w_hh = temp[1, :]
-        self.rnn_b_xh = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/basic_rnn_cell/biases:0']) ).reshape([1])
+        self.w0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/w:0']), delimiter=',' ).reshape([100, 1])
+        self.b0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/b:0']), delimiter=',' ).reshape([1])
+        self.c0w0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/multi_rnn_cell/cell_0/basic_rnn_cell/weights:0']), delimiter=',' )
+        self.c0b0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/multi_rnn_cell/cell_0/basic_rnn_cell/biases:0']), delimiter=',' )
+        self.c1w0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/multi_rnn_cell/cell_1/basic_rnn_cell/weights:0']), delimiter=',' )
+        self.c1b0 = np.loadtxt( ''.join([os.path.dirname(__file__), '/../model/', model_number, '/rnn/multi_rnn_cell/cell_1/basic_rnn_cell/biases:0']), delimiter=',' )
     
-    def run(self, input_vector, status):
-        input_vector = np.reshape(input_vector, [1, 100])
-        status = np.reshape(status, [1])
+    def run(self, input_vector, status_1, status_2):
+        input_vector = np.append(input_vector, status_1).reshape([1, 200])
+        new_status_1 = np.tanh(np.matmul(input_vector, self.c0w0) + self.c0b0)
 
-        new_status = np.tanh(np.matmul(status, self.rnn_w_hh) + np.matmul(input_vector, self.rnn_w_xh) + self.rnn_b_xh)
-        output = 1. / (1 + np.exp( -(np.matmul(self.w_hy, new_status) + self.b_hy) ) )
+        mid_vector = np.append(new_status_1, status_2).reshape([1, 200])
+        new_status_2 = np.tanh(np.matmul(mid_vector, self.c1w0) + self.c1b0)
 
-        return output, new_status
+        output = 1. / (1 + np.exp( -(np.matmul(new_status_2.reshape([1, 100]), self.w0) + self.b0) ) )
+
+        return output, new_status_1, new_status_2

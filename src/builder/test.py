@@ -16,7 +16,8 @@ if __name__ == '__main__':
     s2v = sentence2vec.Sentence2Vec()
 
     result = np.array(s2v.sentence2vec(sys.argv[2]))
-    status = np.zeros([1])
+    status_1 = np.zeros([100])
+    status_2 = np.zeros([100])
     for i in xrange(result.shape[0]):
-        output, status = model.run(result[i, :], status)
+        output, status_1, status_2 = model.run(result[i, :], status_1, status_2)
         print 'prob :', output
