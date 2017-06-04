@@ -1,4 +1,7 @@
 #-*- coding: utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import urllib2
 from bs4 import BeautifulSoup
 
@@ -8,8 +11,7 @@ def get_issue():
     result = soup.find_all('ul')
 
     issue_data = list()
-
-    text = u"오늘의 이슈로는 "
+    issue_data.extend([u"오늘의 이슈로는"])
 
     for res in result:
         if res['class'][0] == 'rank_list':
@@ -19,11 +21,14 @@ def get_issue():
             for key in keywords:
                 if top == 10:
                     break
-                text = text + unicode(key.contents[0]) + " "
-                issue_data.append(key.contents[0])
+
+                data = key.contents[0].replace(' ','')
+                issue_data.extend([unicode(data)])
                 top = top + 1
 
-            text = text + u"이가 있습니다."
+            issue_data.extend([u"등 이있습니다."])
+
+            text = ' '.join(issue_data)
 
             print('[HARU] {t}'.format(t=text))
             return text 
