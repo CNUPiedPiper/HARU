@@ -1,6 +1,5 @@
 #-*- coding: utf-8 -*- 
 from os import listdir
->>>>>>> 4ae9c1ac57226ab97fca8cae46bba25754e20be2
 from os.path import abspath, dirname
 import sys
 reload(sys)
