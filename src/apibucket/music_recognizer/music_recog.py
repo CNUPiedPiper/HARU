@@ -15,7 +15,6 @@ WAVE_OUTPUT_FILENAME = ".music_with_noise.wav"
 def recording_music():
     p = pyaudio.PyAudio()
     
-    print("start")
     stream = p.open(format=FORMAT,
                     channels=CHANNELS,
                     rate=RATE,
