@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from apibucket import weather, mise, issue, geoip
+from apibucket import weather, issue, geoip
 import datetime
 import configparser
 
@@ -10,16 +10,10 @@ def function1(words):
     config = configparser.RawConfigParser()
     config.read('config.ini')
     w_key = config.get('WEATHER', 'key')
-    geo = geoip.Geoip().get_geo()
-    return weather.get_weather(w_key, geo[1], geo[2], 0)
-'''
-def function4(words):
-    config = configparser.RawConfigParser()
-    config.read('config.ini')
     m_key = config.get('MISE', 'key')
     geo = geoip.Geoip().get_geo()
-    return mise.get_mise(m_key, geo[0])
-'''
+    return weather.get_weather(w_key, geo[1], geo[2], m_key, geo[0], 0)
+
 def function2(words):
     return issue.get_issue()
 

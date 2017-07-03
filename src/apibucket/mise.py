@@ -31,7 +31,7 @@ def get_mise(my_key, city):
     data = urllib2.urlopen(url, params).read()
     data = json.loads(data)
     
-    text = "현재 {city}의 미세먼지 농도는 {val} 이고, 상태는 {level}입니다.".format(city=sidoName, val=data["list"][1]["pm10Value"], level=convert_dust_level[data["list"][1]["pm10Grade"]])
+    text = "또한 미세먼지 농도는 {val} 이고, 상태는 {level}입니다.".format(city=sidoName, val=data["list"][1]["pm10Value"], level=convert_dust_level[data["list"][1]["pm10Grade"]])
 
     print(text)
     return text
