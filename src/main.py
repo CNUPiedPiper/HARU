@@ -20,7 +20,9 @@ class Main:
         def __init__(self):
             self.s2v = sentence2vec.Sentence2Vec()
             self.model_set = []
-            for f in listdir( ''.join([dirname(abspath(__file__)), '/model']) ):
+            file_list = listdir( ''.join([dirname(abspath(__file__)), '/model']) )
+            file_list.sort()
+            for f in file_list:
                 self.model_set.append(modelbuilder.ModelBuilder(f))
 
         def classify(self, input_sentence):
