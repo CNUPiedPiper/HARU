@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from apibucket import weather, issue, geoip
+from apibucket.music_recognizer import music_recog
 import datetime
 import configparser
 
@@ -20,3 +21,6 @@ def function2(words):
 def function3(words):
     now = datetime.datetime.now()
     return u'지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
+
+def function4(words):
+	return music_recog.get_music_title()
