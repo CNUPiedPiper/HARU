@@ -7,3 +7,4 @@ apt-get install libatlas-base-dev libblas-dev liblapack-dev
 apt-get install gfortran
 pip install -U pip
 pip install -r requirements.txt
+pip install --upgrade gensim
