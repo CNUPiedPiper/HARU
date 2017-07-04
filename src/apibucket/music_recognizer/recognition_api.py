@@ -9,11 +9,11 @@ import os, sys
 from acrcloud.recognizer import ACRCloudRecognizer
 from acrcloud.recognizer import ACRCloudRecognizeType
 
-def recognize_music(music_file):
+def recognize_music(music_file, host, key, secret):
     config = {
-        'host':'identify-ap-southeast-1.acrcloud.com',
-        'access_key':'736ac23cf7d89fda943b58931e1c7ea4',
-        'access_secret':'RPomMtSC2kdRSzAxRPaKmYqMpcMZ5T7tpX13oAvk',
+        'host': host,
+        'access_key': key,
+        'access_secret': secret,
         'recognize_type': ACRCloudRecognizeType.ACR_OPT_REC_AUDIO, # you can replace it with [ACR_OPT_REC_AUDIO,ACR_OPT_REC_HUMMING,ACR_OPT_REC_BOTH], The SDK decide which type fingerprint to create accordings to "recognize_type".
         'debug':False,
         'timeout':10 # seconds

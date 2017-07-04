@@ -44,9 +44,9 @@ def recording_music():
     wf.close()
 
 #if __name__=='__main__':
-def get_music_title():
+def get_music_title(host, key, secret):
     recording_music()
-    result_str = recognition_api.recognize_music(WAVE_OUTPUT_FILENAME)
+    result_str = recognition_api.recognize_music(WAVE_OUTPUT_FILENAME, host, key, secret)
     result_dict = json.loads(result_str)
     
     if result_dict['status']['msg']=='Success':
