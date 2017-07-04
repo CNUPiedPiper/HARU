@@ -1,0 +1,5 @@
+beautifulsoup4==4.6.0
+pygeoip==0.3.2
+configparser==3.5.0
+konlpy==0.4.4
+gensim==2.2.0
