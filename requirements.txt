@@ -3,3 +3,4 @@ pygeoip==0.3.2
 configparser==3.5.0
 konlpy==0.4.4
 gensim==2.2.0
+google-cloud-speech==0.25.1
