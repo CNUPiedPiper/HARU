@@ -5,7 +5,7 @@ import json
 import recognition_api
 
 THRESHOLD = 500
-CHUNK = 4096
+CHUNK = 8192
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100

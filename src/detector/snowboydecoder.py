@@ -137,10 +137,6 @@ class HotwordDetector(object):
             frames_per_buffer=8192,
             stream_callback=audio_callback)
 
-#        if interrupt_check():
-#            logger.debug("detect voice return")
-#            return
-
         detected_callback = [detected_callback]
 
         assert self.num_hotwords == len(detected_callback), \
@@ -150,9 +146,14 @@ class HotwordDetector(object):
         logger.debug("detecting...")
 
         while True:
-            #if interrupt_check():
-            #    logger.debug("detect voice break")
-            #    break
+            if interrupt_check():
+                print("[HARU] Button pressed")
+                self.stream_in.stop_stream()
+                self.stream_in.close()
+                self.audio.terminate()
+                detected_callback[0]()
+                continue
+
             data = self.ring_buffer.get()
             if len(data) == 0:
                 time.sleep(sleep_time)
