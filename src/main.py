@@ -67,6 +67,9 @@ class Main:
         sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
         self.rec.close_buf()
         #sentence = u'오늘 날씨는 어때'
+        #sentence = u'오늘 이슈는 뭐야'
+        #sentence = u'지금 몇시야'
+        sentence = u'이 노래가 뭐지'
         response_number = self.classifier.classify(sentence)
         print('[HARU] Getting the result text from API')
         answer_text = self.response[response_number](None)

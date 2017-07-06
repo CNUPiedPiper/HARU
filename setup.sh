@@ -8,3 +8,12 @@ apt-get install gfortran
 pip install -U pip
 pip install -r requirements.txt
 pip install --upgrade gensim
+file="./src/GeoLiteCity.dat"
+if [ -f "$file" ]
+then
+    echo "$file already exist."
+else
+    cd src
+    wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+    gzip -d GeoLiteCity.dat.gz
+fi
