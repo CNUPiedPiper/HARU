@@ -1,12 +1,12 @@
+echo y | command
 apt-get update
-apt-get upgrade 
-apt-get install python-dev
-apt-get install ttf-unfonts-core
-apt-get install python-pyaudio python3-pyaudio sox
-apt-get install libatlas-base-dev libblas-dev liblapack-dev
-apt-get install gfortran
-pip install -U pip
-pip install -r requirements.txt
+apt-get -y upgrade 
+apt-get install -y python-dev python-setuptools swig
+apt-get install -y ttf-unfonts-core
+apt-get install -y python-pyaudio python3-pyaudio sox
+apt-get install -y libatlas-base-dev libblas-dev liblapack-dev
+apt-get install -y gfortran
+pip install -U pip pip install -r requirements.txt
 pip install --upgrade gensim
 geo_data="./src/GeoLiteCity.dat"
 if [ -f "$geo_data" ]
@@ -31,3 +31,4 @@ else
     swig2.0 -python wiringpi.i
     sudo python setup.py install
 fi
+echo "Haru perfectly installed !" 
