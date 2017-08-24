@@ -9,7 +9,7 @@ apt-get install -y libatlas-base-dev libblas-dev liblapack-dev
 apt-get install -y gfortran
 apt-get install -y build-essential scons
 
-pip install -U pip pip install -r requirements.txt
+pip install -r requirements.txt
 pip install --upgrade gensim
 
 geo_data="./src/GeoLiteCity.dat"
@@ -20,6 +20,7 @@ else
     cd src
     wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
     gzip -d GeoLiteCity.dat.gz
+    cd ..
 fi
 
 wiring_pi="./WiringPi-Python"
@@ -47,6 +48,8 @@ else
     scons
     cd python
     python setup.py install
+    cd ..
+    cd ..
 fi
 
 echo "Haru perfectly installed !" 
