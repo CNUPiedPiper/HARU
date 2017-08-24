@@ -1,14 +1,33 @@
 # APIBucket
-Modules to get raw data from API and process the data
+[functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에서 사용할 수 있는 모듈들의 디렉토리입니다. <br>
+API를 이용하여 데이터를 가져오고 해당 데이터를 이용해 원하는 문장 형태로 반환합니다. 
 
-## mise.py
-Module to get current fine dust
+This directory contains modules to use in [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py).<br>
+The module uses the API to fetch raw data and return it in the form of the desired statement using the data.
 
-## weather.py
-Module to get current weather 
+## [mise.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/mise.py)
+현재 미세먼지를 얻을 수 있는 모듈입니다. <br>
+먼저 [한국환경공단_대기오염정보 조회 서비스](https://www.data.go.kr/dataset/15000581/openapi.do) 활용신청을 등록 한 뒤
+[src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 에 다음과 같이 작성하여 사용합니다.
 
-## issue.py
-Module to get real-time issue keyword from Naver
 
-## music_recognizer/music_recog.py
-Module to get music title from music
+It is a module that can get current fine dust<br>
+Before you use it, register [Korea environment Public Corporation air pollution information inquiry service](https://www.data.go.kr/dataset/15000581/openapi.do) API Key and write to [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) as follows.
+``` ini
+[MISE]
+key = "YOUR 'www.data.go.kr' KEY" 
+```
+
+
+## [weather.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/weather.py)
+It is a module that can get current weather 
+
+## [issue.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/issue.py)
+현재 네이버 실시간 검색어를 얻을 수 있는 모듈입니다. 
+
+It is a module that can get real-time issue keyword from Naver
+
+## [music_recognizer/music_recog.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/music_recognizer/music_recog.py)
+음악을 듣고 음악에 대한 정보를 얻을 수 있는 모듈입니다. 
+
+It is a module that can get music title from music
