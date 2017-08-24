@@ -70,14 +70,16 @@ class Main:
         #audio_buffer = self.rec.record_audio()
 
         print('[HARU] Now transcribe the audio buffer to text')
-        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
-        #self.rec.close_buf()
 
         self.led.turn_off()
+
         sentence = u'오늘 날씨는 어때'
         #sentence = u'오늘 이슈는 뭐야'
         #sentence = u'지금 몇시야'
         #sentence = u'이 노래가 뭐지'
+        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
+
+        #self.rec.close_buf()
         self.led.turn_on()
 
         response_number = self.classifier.classify(sentence)

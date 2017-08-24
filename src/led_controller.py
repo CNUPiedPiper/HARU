@@ -15,7 +15,7 @@ class Led_controller:
                 LED_FREQ_HZ,
                 LED_DMA,
                 LED_INVERT
-                )
+        )
         self.strip.begin()
 
     def turn_on(self):
