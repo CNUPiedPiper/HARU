@@ -20,7 +20,8 @@ def recording_music():
                     rate=RATE,
                     input=True,
                     input_device_index=2,
-                    frames_per_buffer=CHUNK)
+                    frames_per_buffer=CHUNK
+    )
 
     print("[HARU] Listening your music ... ")
 
@@ -43,7 +44,6 @@ def recording_music():
     wf.writeframes(b''.join(frames))
     wf.close()
 
-#if __name__=='__main__':
 def get_music_title(host, key, secret):
     recording_music()
     result_str = recognition_api.recognize_music(WAVE_OUTPUT_FILENAME, host, key, secret)
@@ -54,5 +54,5 @@ def get_music_title(host, key, secret):
     else : 
         text = "음악을 찾을 수 없습니다."
 
-    print text
+    print("[HARU] {result}".format(result=text))
     return text
