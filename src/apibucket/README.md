@@ -5,7 +5,7 @@ API를 이용하여 데이터를 가져오고 해당 데이터를 이용해 원�
 This directory contains modules to use in [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py).<br>
 The module uses the API to fetch raw data and return it in the form of the desired statement using the data.
 
-## [mise.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/mise.py)
+## mise.py
 현재 미세먼지를 얻을 수 있는 모듈입니다.<br>
 먼저 [한국환경공단_대기오염정보 조회 서비스](https://www.data.go.kr/dataset/15000581/openapi.do) 활용신청을 등록 한 뒤
 [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 에 다음과 같이 작성하여 사용합니다.
@@ -18,7 +18,7 @@ key = "YOUR 'www.data.go.kr' KEY"
 ```
 
 
-## [weather.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/weather.py)
+## weather.py
 현재 날씨정보를 얻을 수 있는 모듈입니다.<br>
 먼저 [SK planet Developers](https://developers.skplanetx.com/apidoc/kor/weather/) API Key를 등록 한 뒤 [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 에 다음과 같이 작성하여 사용합니다.
 
@@ -30,13 +30,13 @@ key = "YOUR 'developers.skplanetx.com/apidoc/kor/weather' KEY"
 ```
 
 
-## [issue.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/issue.py)
+## issue.py
 현재 네이버 실시간 검색어를 얻을 수 있는 모듈입니다. 
 
 It is a module that can get real-time issue keyword from Naver.
 
 
-## [music_recognizer/music_recog.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/apibucket/music_recognizer/music_recog.py)
+## music_recognizer/music_recog.py
 음악을 듣고 음악에 대한 정보를 얻을 수 있는 모듈입니다.<br>
 먼저 [ACRCloud](https://www.acrcloud.com/) API Key를 등록 한 뒤 [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 에 다음과 같이 작성하여 사용합니다.
 
