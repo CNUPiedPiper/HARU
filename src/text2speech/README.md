@@ -10,7 +10,7 @@ This directory contains [Naver Text2Speech API](https://developers.naver.com/pro
 먼저 [Naver API Key](https://developers.naver.com/main/)를 등록 한 뒤, 
 [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 에 다음과 같이 작성하여 사용합니다.<br>
 
-Before you use it, Register [Naver API Key](https://developers.naver.com/main/) and write to [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) as follows.
+Before you use it, register [Naver API Key](https://developers.naver.com/main/) and write to [src/config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) as follows.
 
 ``` ini
 [NAVER]
