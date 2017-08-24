@@ -14,6 +14,7 @@ from detector import hotword
 from text2speech import text2speech
 from speech_recognition import transcribe_streaming
 import configparser
+from led_controller import Led_controller
 
 class Main:
     class Classifier:
@@ -59,21 +60,33 @@ class Main:
         self.speaker = text2speech.Text2Speech(naver_id, naver_secret)
         self.rec = recorder.Recorder()
 
+        self.led = Led_controller()
+
     def main_flow(self):
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
-        audio_buffer = self.rec.record_audio()
+
+        self.led.turn_on()
+        #audio_buffer = self.rec.record_audio()
+
         print('[HARU] Now transcribe the audio buffer to text')
-        sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
-        self.rec.close_buf()
-        #sentence = u'오늘 날씨는 어때'
+        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
+        #self.rec.close_buf()
+
+        self.led.turn_off()
+        sentence = u'오늘 날씨는 어때'
         #sentence = u'오늘 이슈는 뭐야'
         #sentence = u'지금 몇시야'
-        sentence = u'이 노래가 뭐지'
+        #sentence = u'이 노래가 뭐지'
+        self.led.turn_on()
+
         response_number = self.classifier.classify(sentence)
         print('[HARU] Getting the result text from API')
         answer_text = self.response[response_number](None)
         self.speaker.speak(answer_text)
+
+        self.led.turn_off()
+
         self.run()
 
     def run(self):
