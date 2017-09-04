@@ -18,9 +18,9 @@ First, write a [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src
 You can find how to write [here](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech).
 
 
-그리고 다음과 같이 main.py를 실행합니다.</br>
+그리고 다음과 같이 [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py)를 실행합니다.</br>
 
-Then run main.py as follows.
+Then run [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) as follows.
 ``` bash
 $ sudo python main.py
 ```
