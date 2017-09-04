@@ -56,10 +56,11 @@ Second, Put the sentences that you want to be classified in [/trainer/res](https
 ```
 
 
-마지막으로, 훈련 시키고 싶은 Model 번호와 훈련 횟수를 인자로 넘겨서 train_runner를 실행시킵니다.</br>
+마지막으로, 훈련 시키고 싶은 Model 번호와 훈련 횟수를 인자로 넘겨서 [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py)를 실행시킵니다.</br>
 
-Finally, run with the model number and the number of training that you want to train as follows.
+Finally, run [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) with the model number and the number of training that you want to train as follows.
 ``` bash
+$ python trainer.py 3 100
 $ python trainer.py model_number iteration_number
 ```
 
