@@ -16,21 +16,29 @@ from speech_recognition import transcribe_streaming
 import configparser
 from led_controller import Led_controller
 
+# Haru main class.
 class Main:
+    
+    # Module for classifying user's order sentence.
     class Classifier:
         def __init__(self):
             self.s2v = sentence2vec.Sentence2Vec()
             self.model_set = []
+            
+            # Read neural network model from file.
             file_list = listdir( ''.join([dirname(abspath(__file__)), '/model']) )
             file_list.sort()
             for f in file_list:
                 self.model_set.append(modelbuilder.ModelBuilder(f))
 
         def classify(self, input_sentence):
+            # Convert input_sentence to vector using sentecne2vec.
             input_vector = np.array(self.s2v.sentence2vec(input_sentence))
             
             result = np.array([])
             model_number = 1
+            
+            # Put pre-processed vector to neural network model.
             for model in self.model_set:
                 status_1 = np.zeros([100])
                 status_2 = np.zeros([100])
@@ -41,8 +49,11 @@ class Main:
                 model_number = model_number + 1
 
             max_index = np.argmax(result)
+            
+            # No answer in model
             if result[max_index] < 0.5:
                 return 0
+            # Return argmax index
             else:
                 return max_index + 1
 
@@ -65,33 +76,44 @@ class Main:
     def main_flow(self):
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
-
         self.led.turn_on()
+        
+        # Record user's order sentence.
         #audio_buffer = self.rec.record_audio()
 
         print('[HARU] Now transcribe the audio buffer to text')
-
         self.led.turn_off()
 
+        # Transcribing audio buffer streaming to korean.
+        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
+        
         sentence = u'오늘 날씨는 어때'
         #sentence = u'오늘 이슈는 뭐야'
         #sentence = u'지금 몇시야'
         #sentence = u'이 노래가 뭐지'
+        
+        # Transcribing audio buffer streaming to korean.
         #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
+        
 
         #self.rec.close_buf()
         self.led.turn_on()
 
+        # Get classified number from user's order sentence.
         response_number = self.classifier.classify(sentence)
         print('[HARU] Getting the result text from API')
+        
+        # Run app function
         answer_text = self.response[response_number](None)
         self.speaker.speak(answer_text)
 
         self.led.turn_off()
-
+        
+        # Call run funciton again.
         self.run()
 
     def run(self):
+        # Detecting wake-up word.
         self.detector.start_detection(self.main_flow)
 
 if __name__ == "__main__":
