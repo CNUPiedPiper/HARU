@@ -41,6 +41,14 @@ def function3(words):
     return u'지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
 ```
 
+다른 라이브러리를 사용해 추가적으로 구현할 필요가 있는 함수는 [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket)디렉토리에서 모듈 형태로 구현한 뒤 이를 [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py)에서 추가시켜 사용합니다.</br>
+
+If you have any functions that needs to be implemented using another library, you can implement it as a module in the [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) directory and add it in [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py).
+``` python
+from apibucket import weather, issue, geoip
+from apibucket.music_recognizer import music_recog
+```
+
 두번째로는 [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res)에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다.</br>
 
 Second, Put the sentences that you want to be classified in [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows.
