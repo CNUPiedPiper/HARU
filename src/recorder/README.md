@@ -26,6 +26,6 @@ If Device 2 is assignable, set device number to 2 at [recorder.py](https://githu
 DEVICE_NUMBER = 2
 ```
 
-결과 값으로는 '.sound.raw'에 음성 raw 데이터를 저장하고, 해당 음성 파일의 시작 pointer를 반환합니다.
+결과 값으로는 '.sound.raw'에 음성 raw 데이터를 저장하고, 해당 음성 파일의 시작 pointer를 반환합니다. 단 '.sound.raw' 파일에 실제 음성이 저장되지는 않습니다.(0 Bytes 더미파일)
 
 It returns the pointer which is the beginning part at voice raw data('.sound.raw').

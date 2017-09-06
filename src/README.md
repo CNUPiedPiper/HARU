@@ -49,7 +49,7 @@ from apibucket import weather, issue, geoip
 from apibucket.music_recognizer import music_recog
 ```
 
-두번째로는 [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res)에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다.</br>
+두번째로는 [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res)에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다. 동작함수의 번호와 문장 예시 파일의 번호는 서로 매치되어야 합니다. </br>
 
 Second, Put the sentences that you want to be classified in [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows.
 

@@ -10,7 +10,8 @@ This directory is a moudle that trains the RNN model which classifies user's inp
 
 
 ##
-[/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다.</br>
+[/src](https://github.com/CNUPiedPiper/HARU/tree/master/src/) 디렉토리의  functions.py 파일 내에 HARU가 수행해야할 동작을 양식에 맞추어 구현한 다음, [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 디렉토리 내에 앞서 구현한 함수 번호에 맞춰, 해당 동작이 수행될 문장들의 예시를 model# 형식의 이름을 가진 파일 내에 입력합니다.</br>
+예시는 다음과 같습니다.</br>
 
 Put the sentences that you want to be classified in [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows.</br>
 
