@@ -10,10 +10,13 @@ This directory is a moudle that trains the RNN model which classifies user's inp
 
 
 ##
-[/src](https://github.com/CNUPiedPiper/HARU/tree/master/src/) 디렉토리의  functions.py 파일 내에 HARU가 수행해야할 동작을 양식에 맞추어 구현한 다음, [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 디렉토리 내에 앞서 구현한 함수 번호에 맞춰, 해당 동작이 수행될 문장들의 예시를 model# 형식의 이름을 가진 파일 내에 입력합니다.</br>
+먼저 [/src](https://github.com/CNUPiedPiper/HARU/tree/master/src/) 디렉토리의  functions.py 파일 내에 HARU가 수행해야할 동작을 양식에 맞추어 구현합니다. 그다음 [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 디렉토리 내에 해당 동작을 수행시킬 문장들의 예시를 model# 형식의 이름을 가진 파일 내에 입력합니다. model의 번호와 함수의 번호는 일치해야 합니다.</br>
 예시는 다음과 같습니다.</br>
 
-Put the sentences that you want to be classified in [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows.</br>
+Implement the function that HARU should perform in the form, in the function.py in the [/src](https://github.com/CNUPiedPiper/HARU/tree/master/src/) directory. Then, in the [/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) directory, put the sentences to execute the previously implemented function number in the file with the name of the model# type. The number of model and the number of function must match.</br>
+Here's an example:
+
+</br>
 
 ``` 
 # In model1 file.
