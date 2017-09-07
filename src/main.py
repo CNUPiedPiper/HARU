@@ -79,24 +79,20 @@ class Main:
         self.led.turn_on()
         
         # Record user's order sentence.
-        #audio_buffer = self.rec.record_audio()
+        audio_buffer = self.rec.record_audio()
 
         print('[HARU] Now transcribe the audio buffer to text')
         self.led.turn_off()
 
         # Transcribing audio buffer streaming to korean.
-        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
+        sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
         
-        sentence = u'오늘 날씨는 어때'
+        #sentence = u'오늘 날씨는 어때'
         #sentence = u'오늘 이슈는 뭐야'
         #sentence = u'지금 몇시야'
         #sentence = u'이 노래가 뭐지'
         
-        # Transcribing audio buffer streaming to korean.
-        #sentence = transcribe_streaming.transcribe_streaming(audio_buffer)
-        
-
-        #self.rec.close_buf()
+        self.rec.close_buf()
         self.led.turn_on()
 
         # Get classified number from user's order sentence.
