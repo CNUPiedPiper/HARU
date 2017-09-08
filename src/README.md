@@ -76,7 +76,7 @@ $ python trainer.py model_number iteration_number
 ## Structure
 
 - [/apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) - [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에서 사용할 수 있는 모듈들의 디렉토리입니다. </br>
-- [/builder](https://github.com/CNUPiedPiper/HARU/tree/master/src/builder) - 피쳐값을 읽어와서 모델을 만드는 디렉토리입니다.</br>
+- [/builder](https://github.com/CNUPiedPiper/HARU/tree/master/src/builder) - HARU 실행 시, 저장된 피쳐값을 읽어와 모델을 빌드 디렉토리입니다.</br>
 - [/detector](https://github.com/CNUPiedPiper/HARU/tree/master/src/detector) - HARU를 깨우는 사용자의 행동을 탐지하는 모듈들의 디렉토리입니다. </br>
 - [/model](https://github.com/CNUPiedPiper/HARU/tree/master/src/model) - 트레이닝시킨 모델의 피쳐값이 있는 디렉토리입니다. </br>
 - [/recorder](https://github.com/CNUPiedPiper/HARU/tree/master/src/recorder) - 사용자의 음성 명령을 바이너리 데이터로 녹음하는 모듈의 디렉토리 입니다. </br>
