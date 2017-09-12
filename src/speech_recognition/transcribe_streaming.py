@@ -23,28 +23,38 @@ Example usage:
 # [START import_libraries]
 import argparse
 import io
+import os
+import sys
 # [END import_libraries]
 
 
 def transcribe_streaming(audio_file):
     """Streams transcription of the given audio file."""
     from google.cloud import speech
-    speech_client = speech.Client()
+    from google.cloud.speech import enums
+    from google.cloud.speech import types
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/pi/HARU-6bad27ee1998.json'
+    client = speech.SpeechClient()
+    #print(client)
 
-#    with io.open(stream_file, 'rb') as audio_file:
-    audio_sample = speech_client.sample(
-        stream=audio_file,
-        encoding=speech.encoding.Encoding.LINEAR16,
-        sample_rate_hertz=44100)
-    alternatives = audio_sample.streaming_recognize('ko-KR')
+    content = audio_file.read()
+    stream = [content]
+    requests = (types.StreamingRecognizeRequest(audio_content=chunk) for chunk in stream)
 
-    for alternative in alternatives:
-        print('[HARU] Speech recognition finished: {}'.format(alternative.is_final))
-        print('[HARU] Stability: {}'.format(alternative.stability))
-        print('[HARU] Confidence: {}'.format(alternative.confidence))
-        print(''.join(['[HARU] Transcript: ', alternative.transcript]))
-        return alternative.transcript
+    config = types.RecognitionConfig(
+            encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+            sample_rate_hertz=44100,
+            language_code='ko-KR')
+    streaming_config = types.StreamingRecognitionConfig(config=config)
 
+    responses = client.streaming_recognize(streaming_config, requests)
+
+    for response in responses:
+        for result in response.results:
+            alternatives = result.alternatives
+            for alternative in alternatives:
+                print('[HARU] Transcript: {}'.format(alternative.transcript))
+                return alternative.transcript
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(

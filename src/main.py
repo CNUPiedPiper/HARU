@@ -72,6 +72,9 @@ class Main:
         self.rec = recorder.Recorder()
 
         self.led = Led_controller()
+        self.led.start()
+        self.speaker.speak(u'안녕하세요')
+        self.speaker.speak(u'하루를 시작합니다..')
 
     def main_flow(self):
         print('[HARU] In Main flow..')
@@ -114,4 +117,5 @@ class Main:
 
 if __name__ == "__main__":
     print('[HARU] Starting the HARU')
-    Main().run()
+    haru = Main()
+    haru.run()

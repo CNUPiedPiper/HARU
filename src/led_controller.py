@@ -18,6 +18,10 @@ class Led_controller:
         )
         self.strip.begin()
 
+    def start(self):
+        self.turn_on()
+        self.turn_off()
+
     def turn_on(self):
         for i in range(self.strip.numPixels()):
             self.strip.setPixelColor(i, Color(128, 0, 128))

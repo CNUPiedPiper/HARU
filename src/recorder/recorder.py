@@ -1,10 +1,14 @@
 import pyaudio
 import wave
 from array import array
-from speech_recognition.transcribe_streaming import transcribe_streaming
+import os
+import sys
+sys.path.append('/home/pi/prototype/src/speech_recognition')
+from transcribe_streaming import transcribe_streaming
+
 
 # Set device number with get_dev_index.py.
-DEVICE_NUMBER = 2
+DEVICE_NUMBER = 1
 
 class Recorder:
 	def __init__(self):
@@ -84,5 +88,6 @@ class Recorder:
 if __name__ == "__main__":
 	r = Recorder()
 	f = r.record_audio()
-	transcribe_streaming(f)
+	sen = transcribe_streaming(f)
+        print(sen)
 	r.close_buf()
