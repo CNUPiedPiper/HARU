@@ -79,6 +79,7 @@ class Main:
     def main_flow(self):
         print('[HARU] In Main flow..')
         print('[HARU] Recording now.. Ask a question now') 
+        self.speaker.speak(u'말씀하세요')
         self.led.turn_on()
         
         # Record user's order sentence.
