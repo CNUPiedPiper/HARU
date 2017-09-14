@@ -16,6 +16,10 @@ Haru(Humanic Awareness and Response Unit)
 **Haru** is an intelligent personal assistant that can perform tasks or services for an individual especially for Korean with Raspberry PI.
 
 ## Setup
+Clone this project with --depth=1 option.
+```
+$ git clone --depth=1 https://github.com/CNUPiedPiper/HARU.git
+```
 
 ### Install Dependencies
 
