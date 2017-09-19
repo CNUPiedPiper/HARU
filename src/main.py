@@ -33,7 +33,9 @@ class Main:
 
         def classify(self, input_sentence):
             # Convert input_sentence to vector using sentecne2vec.
-            words_vec, words_raw = self.s2v.sentence2vec(input_sentence)
+            result = self.s2v.sentence2vec(input_sentence)
+            words_vec = result[0]
+            words_raw = result[1]
             input_vector = np.array(words_vec)
             
             result = np.array([])

@@ -13,7 +13,7 @@ class Trainer:
         sentences = []
         with codecs.open(''.join([dirname(__file__), '/res/model', model_number]), 'r', encoding='utf8') as f: # /res/model# 파일 읽음
             for line in f:
-                sentences.append(self.s2v.sentence2vec(line)) # 각 문장들 저장
+                sentences.append(self.s2v.sentence2vec(line)[0]) # 각 문장들 저장
                 
         temp_set = np.zeros([1, 10, 100])
         len_set = []
@@ -42,7 +42,7 @@ class Trainer:
         for file_name in filter( lambda x: x != 'model'+model_number, listdir( ''.join([dirname(__file__), '/res']) ) ): # 사용자가 입력한 번호 외의 파일들 읽음
             with codecs.open(''.join([dirname(__file__), '/res/', file_name]), 'r', encoding='utf8') as f:
                 for line in f:
-                    sentences.append(self.s2v.sentence2vec(line))
+                    sentences.append(self.s2v.sentence2vec(line)[0])
     
         temp_set = np.zeros([1, 10, 100])
         for sentence in sentences:
