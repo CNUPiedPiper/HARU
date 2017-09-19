@@ -3,6 +3,7 @@ from apibucket import weather, issue, geoip
 from apibucket.music_recognizer import music_recog
 import datetime
 import configparser
+import re
 
 config = configparser.RawConfigParser()
 config.read('config.ini')
@@ -11,6 +12,7 @@ def function0(words):
     return u'적절한 응답을 찾을 수 없습니다'
 
 def function1(words):
+    nouns = [re.findall(r"\w+", word)[0] for word in words if re.findall(r"\w+", word)[1] == u'Noun']
     w_key = config.get('WEATHER', 'key')
     m_key = config.get('MISE', 'key')
     geo = geoip.Geoip().get_geo()
