@@ -33,7 +33,8 @@ class Main:
 
         def classify(self, input_sentence):
             # Convert input_sentence to vector using sentecne2vec.
-            input_vector = np.array(self.s2v.sentence2vec(input_sentence))
+            words_vec, words_raw = self.s2v.sentence2vec(input_sentence)
+            input_vector = np.array(words_vec)
             
             result = np.array([])
             model_number = 1
@@ -52,10 +53,10 @@ class Main:
             
             # No answer in model
             if result[max_index] < 0.5:
-                return 0
+                return 0, words_raw
             # Return argmax index
             else:
-                return max_index + 1
+                return max_index + 1, words_raw
 
     def __init__(self):
         self.classifier = self.Classifier()
@@ -100,11 +101,11 @@ class Main:
         self.led.turn_on()
 
         # Get classified number from user's order sentence.
-        response_number = self.classifier.classify(sentence)
+        response_number, words = self.classifier.classify(sentence)
         print('[HARU] Getting the result text from API')
         
         # Run app function
-        answer_text = self.response[response_number](None)
+        answer_text = self.response[response_number](words)
         self.speaker.speak(answer_text)
 
         self.led.turn_off()

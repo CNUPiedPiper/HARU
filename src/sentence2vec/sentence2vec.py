@@ -15,4 +15,4 @@ class Sentence2Vec:
         		result.append(self.w2v.word2vec(i))
         	except KeyError as e:
 	        	continue
-        return result
+        return result, p_input
