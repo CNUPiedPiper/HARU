@@ -27,15 +27,15 @@ import os
 import sys
 # [END import_libraries]
 
+google_json_key_path = '/home/pi/HARU-6bad27ee1998.json'
 
 def transcribe_streaming(audio_file):
     """Streams transcription of the given audio file."""
     from google.cloud import speech
     from google.cloud.speech import enums
     from google.cloud.speech import types
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/home/pi/HARU-6bad27ee1998.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = google_json_key_path
     client = speech.SpeechClient()
-    #print(client)
 
     content = audio_file.read()
     stream = [content]
