@@ -11,13 +11,8 @@ Haru(Humanic Awareness and Response Unit)
 
 ## Getting started
 
-먼저 음성인식(STT)과 텍스트를 음성으로 변환시키는(TTS) 모듈을 사용하기 위해 [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 를 작성하고,
-[Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) 를 설정합니다. </br>
-First, write a [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) to use the module to convert the Text to Speech(TTS) and set the [Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) configuration.</br>
-
-TTS 모듈에 대한 작성방법은 [여기](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech)에서 확인할 수 있습니다.</br>
-You can find how to write TTS module at [here](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech).
-
+먼저 음성인식(STT)과 텍스트를 음성으로 변환시키는(TTS) 모듈을 사용하기 위해 [Google Cloud Speech](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) 와 [Naver TTS](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech) 의 API Key를 설정해줍니다.</br>
+First, Set [Google Cloud Speech](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) and [Naver TTS](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech) API Key for using STT and TTS modules.
 
 그리고 다음과 같이 [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) 를 실행합니다.</br>
 Then run [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) as follows.
@@ -71,7 +66,7 @@ $ python train_runner.py 3 100
 ## Hardware Design
 
 ### Raspberry PI case 3D Modeling file
-;라즈베리 파이 케이스 3d stl 파일을 [이곳](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0)에서 다운로드 받을 수 있습니다.</br>
+라즈베리 파이 케이스 3d stl 파일을 [이곳](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0)에서 다운로드 받을 수 있습니다.</br>
 You can download our Raspberry Pi case 3d stl file at [here](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0).
 
 <p align="center">
