@@ -29,3 +29,6 @@ $ git clone --depth=1 https://github.com/CNUPiedPiper/HARU.git
 ```
 $ sudo sh ./setup.sh
 ```
+
+### Watch our demo video!
+[![Watch this demo video](https://img.youtube.com/vi/CyqrgM0Fyvk/0.jpg)](https://www.youtube.com/watch?v=CyqrgM0Fyvk)
