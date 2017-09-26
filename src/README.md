@@ -11,27 +11,27 @@ Haru(Humanic Awareness and Response Unit)
 
 ## Getting started
 
-&nbsp;&nbsp;먼저 음성인식(STT)과 텍스트를 음성으로 변환시키는(TTS) 모듈을 사용하기 위해 [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 를 작성하고,
-[Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) 를 설정합니다.</br>
-&nbsp;&nbsp;First, write a [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) to use the module to convert the Text to Speech(TTS) and set the [Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) configuration.</br>
+먼저 음성인식(STT)과 텍스트를 음성으로 변환시키는(TTS) 모듈을 사용하기 위해 [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) 를 작성하고,
+[Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) 를 설정합니다. </br>
+First, write a [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) to use the module to convert the Text to Speech(TTS) and set the [Google Cloud Speech API](https://github.com/CNUPiedPiper/HARU/tree/master/src/speech_recognition) configuration.</br>
 
-&nbsp;&nbsp;TTS 모듈에 대한 작성방법은 [여기](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech) 에서 확인할 수 있습니다.</br>
-&nbsp;&nbsp;You can find how to write TTS module at [here](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech).
+TTS 모듈에 대한 작성방법은 [여기](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech)에서 확인할 수 있습니다.</br>
+You can find how to write TTS module at [here](https://github.com/CNUPiedPiper/HARU/tree/master/src/text2speech).
 
 
-&nbsp;&nbsp;그리고 다음과 같이 [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) 를 실행합니다.</br>
-&nbsp;&nbsp;Then run [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) as follows.
+그리고 다음과 같이 [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) 를 실행합니다.</br>
+Then run [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) as follows.
 ``` bash
 $ sudo python main.py
 ```
 
 ## Plug-in Interface
-&nbsp;&nbsp;자신만의 스킬을 추가하고 싶으면 다음과 같은 과정을 진행합니다.</br>
-&nbsp;&nbsp;If you want to add your own skills, proceed as follows.</br>
+자신만의 스킬을 추가하고 싶으면 다음과 같은 과정을 진행합니다.</br>
+If you want to add your own skills, proceed as follows.</br>
 
 
-&nbsp;&nbsp;처음에는 [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에 다음과 같이 원하는 번호와 그에 맞는 함수를 구현합니다.</br>
-&nbsp;&nbsp;First, Implement the desired number and function as follows In [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py)
+처음에는 [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에 다음과 같이 원하는 번호와 그에 맞는 함수를 구현합니다.</br>
+First, Implement the desired number and function as follows In [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py)
 
 ``` python
 def function3(words):
@@ -39,15 +39,15 @@ def function3(words):
     return u'지금은 {h}시 {m}분 입니다.'.format(h=now.hour, m=now.minute)
 ```
 
-&nbsp;&nbsp;다른 라이브러리를 사용해 추가적으로 구현할 필요가 있는 함수는 [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) 디렉토리에서 모듈 형태로 구현한 뒤 이를 [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에서 추가시켜 사용합니다.</br>
-&nbsp;&nbsp;If you have any functions that needs to be implemented using another library, you can implement it as a module in the [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) directory and add it in [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py).
+다른 라이브러리를 사용해 추가적으로 구현할 필요가 있는 함수는 [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) 디렉토리에서 모듈 형태로 구현한 뒤 이를 [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) 에서 추가시켜 사용합니다.</br>
+If you have any functions that needs to be implemented using another library, you can implement it as a module in the [apibucket](https://github.com/CNUPiedPiper/HARU/tree/master/src/apibucket) directory and add it in [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py).
 ``` python
 from apibucket import weather, issue, geoip
 from apibucket.music_recognizer import music_recog
 ```
 
-&nbsp;&nbsp;두번째로는 [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다. 동작함수의 번호와 문장 예시 파일의 번호는 서로 일치하여야 합니다. </br>
-&nbsp;&nbsp;Second, Put the sentences that you want to be classified in [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows. The number of the operation function and the number of the sentence example file must match each other.
+두번째로는 [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) 에 분류되고 싶은 문장들을 각각의 모델 번호가 주어진 파일에 다음과 같이 넣어줍니다. 동작함수의 번호와 문장 예시 파일의 번호는 서로 일치하여야 합니다. </br>
+Second, Put the sentences that you want to be classified in [/trainer/res](https://github.com/CNUPiedPiper/HARU/tree/master/src/trainer/res) into the given file of each model number as follows. The number of the operation function and the number of the sentence example file must match each other.
 
 ``` 
 # In model3 file.
@@ -60,8 +60,8 @@ from apibucket.music_recognizer import music_recog
 ```
 
 
-&nbsp;&nbsp;마지막으로, 훈련 시키고 싶은 Model 번호와 훈련 횟수를 인자로 넘겨서 [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) 를 실행시킵니다.</br>
-&nbsp;&nbsp;Finally, run [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) with the model number and the number of training that you want to train as follows.
+마지막으로, 훈련 시키고 싶은 Model 번호와 훈련 횟수를 인자로 넘겨서 [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) 를 실행시킵니다.</br>
+Finally, run [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) with the model number and the number of training that you want to train as follows.
 ``` bash
 # In src directory.
 $ python train_runner.py model_number iteration_number
@@ -71,16 +71,16 @@ $ python train_runner.py 3 100
 ## Hardware Design
 
 ### Raspberry PI case 3D Modeling file
-&nbsp;&nbsp;라즈베리 파이 케이스 3d stl 파일을 [이곳](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0) 에서 다운로드 받을 수 있습니다.</br>
-&nbsp;&nbsp;You can download our Raspberry Pi case 3d stl file at [here](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0).
+;라즈베리 파이 케이스 3d stl 파일을 [이곳](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0)에서 다운로드 받을 수 있습니다.</br>
+You can download our Raspberry Pi case 3d stl file at [here](https://www.dropbox.com/sh/tzxt7pajaykzqf3/AADd1HNbXNhV6j7XNzx4KZQsa?dl=0).
 
 <p align="center">
   <img src="https://i.imgur.com/7bo0Qqt.png">
 </p>
 
 ### LED
-&nbsp;&nbsp;저희는 [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) 을 사용하였으며, [이곳](https://learn.adafruit.com/neopixels-on-raspberry-pi/software) 에서 관련된 Reference를 확인 할 수 있습니다. </br>
-&nbsp;&nbsp;We used [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) and you can check reference at [here](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led).
+저희는 [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) 을 사용하였으며, [이곳](https://learn.adafruit.com/neopixels-on-raspberry-pi/software) 에서 관련된 Reference를 확인 할 수 있습니다. </br>
+We used [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) and you can check reference at [here](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led).
 
 <p align="center">
   <img src="https://i.imgur.com/8CyR2jz.jpg">
