@@ -2,7 +2,6 @@ Trainer Module
 ===============================================================================
 
 &nbsp;&nbsp;이 디렉토리는 사용자의 음성 명령들을 특정 번호로 분류시키는 기능을 가진 RNN 모델을 훈련하는 모듈입니다. </br>
-
 &nbsp;&nbsp;This directory is a moudle that trains the RNN model which classifies user's input sentences into specific numbers.
 
 ## Dependencies
@@ -32,7 +31,6 @@ Trainer Module
 
 ##
 &nbsp;&nbsp;그리고 다음과 같이 훈련 시키고 싶은 model number와 훈련 횟수를 인자로 넘겨서 실행시킵니다.</br>
-
 &nbsp;&nbsp;Then, run with the model number and the number of training that you want to train as follows.
 
 ``` bash
