@@ -11,6 +11,7 @@ apt-get install -y build-essential scons
 
 pip install -r requirements.txt
 pip install --upgrade gensim
+pip install --upgrade google-cloud-speech
 
 geo_data="./src/GeoLiteCity.dat"
 if [ -f "$geo_data" ]
