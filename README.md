@@ -11,9 +11,9 @@ Haru(Humanic Awareness and Response Unit)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 ## Introduction
-&nbsp;라즈베리파이를 이용한 한국어 음성인식 비서 서비스 플랫폼입니다.
+라즈베리파이를 이용한 한국어 음성인식 비서 서비스 플랫폼입니다.
 
-&nbsp;**Haru** is an intelligent personal assistant that can perform tasks or services for an individual especially for Korean with Raspberry PI.
+**Haru** is an intelligent personal assistant that can perform tasks or services for an individual especially for Korean with Raspberry PI.
 
 ## Setup
 &nbsp;Clone this project with --depth=1 option.
