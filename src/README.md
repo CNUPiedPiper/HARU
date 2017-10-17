@@ -74,7 +74,7 @@ You can download our Raspberry Pi case 3d stl file at [here](https://www.dropbox
 </p>
 
 ### LED
-저희는 [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) 을 사용하였으며, [이곳](https://learn.adafruit.com/neopixels-on-raspberry-pi/software) 에서 관련된 Reference를 확인 할 수 있습니다. </br>
+저희는 [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) 을 사용하였으며, [이곳](https://learn.adafruit.com/neopixels-on-raspberry-pi/software)에서 관련된 Reference를 확인 할 수 있습니다. </br>
 We used [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led) and you can check reference at [here](https://www.amazon.com/Adafruit-RGB-LED-Neopixel-Ring/dp/B00K9M3WXG/ref=sr_1_8?ie=UTF8&qid=1506436738&sr=8-8&keywords=adafruit+led).
 
 <p align="center">
