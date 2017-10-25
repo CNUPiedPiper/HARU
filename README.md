@@ -8,7 +8,7 @@ Haru(Humanic Awareness and Response Unit)
 
 ## Standalone Version
 [![GitHub version](https://badge.fury.io/gh/boennemann%2Fbadges.svg)](http://badge.fury.io/gh/boennemann%2Fbadges)
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
 
 ## Introduction
 라즈베리파이를 이용한 한국어 음성인식 비서 서비스 플랫폼입니다.
