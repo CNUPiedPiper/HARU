@@ -18,7 +18,7 @@ Make sure that the weight values of the desired model number are stored correctl
 
 The structure of the model is as follows.
 <p align="center">
-  <img src="https://github.com/CNUPiedPiper/HARU/blob/master/src/builder/RNN%20model.png?raw=true">
+  <img src="https://github.com/CNUPiedPiper/HARU/blob/master/src/builder/RNN_model_final.png?raw=true">
 </p>
 
 모델 구축 후 run 함수에 input, status1, status2의 순서대로 전달하여(status의 초기값은 0) output, status1, status2의 순서로 결과값을 전달받습니다. [test.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/builder/test.py) 코드를 통해 Sequence2Vector 모듈과의 연계 및 실제 결과를 테스트하실 수 있습니다. </br>
