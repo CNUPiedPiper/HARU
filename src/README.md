@@ -63,6 +63,16 @@ $ python train_runner.py model_number iteration_number
 $ python train_runner.py 3 100
 ```
 
+만약, 처음부터 입력하는 Model 번호까지 훈련을 시켜주고 싶다면 [train_runner_all.py](https://github.com/CNUPiedPiper/HARU-Server/blob/master/src/train_runner_all.py) 를 실행시킵니다. 
+If you want to train from the first model until model that you want, run [train_runner_all.py](https://github.com/CNUPiedPiper/HARU-Server/blob/master/src/train_runner_all.py) with the model number and the number of training that you want to train as follows.
+``` bash
+# In src directory.
+$ python train_runner_all.py model_number iteration_number
+$ python train_runner_all.py 3 100
+```
+
+
+
 ## Hardware Design
 
 ### Raspberry PI case 3D Modeling file
@@ -95,5 +105,6 @@ We used [Adafruit 24 RGB LED Neopixel Ring](https://www.amazon.com/Adafruit-RGB-
 - [functions.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/functions.py) - HARU가 할 수 있는 기능들을 구현한 모듈 파일입니다</br>
 - [led_controller.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/led_controller.py) - led를 사용하여 HARU의 진행상황을 알 수 있도록 해주는 모듈 파일입니다. </br>
 - [train_runner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/train_runner.py) - [traner.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/trainer/trainer.py)모듈을 [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py)에서 실행시키는 파일입니다. </br>
+- [train_runner_all.py](https://github.com/CNUPiedPiper/HARU-Server/blob/master/src/train_runner_all.py) - [train_runner.py](https://github.com/CNUPiedPiper/HARU-Server/blob/master/src/train_runner.py)모듈을 처음 모델부터 입력 모델 까지 실행시키는 파일입니다. </br>
 - [config.ini](https://github.com/CNUPiedPiper/HARU/blob/master/src/config.ini) - api key를 저장하여 사용하는 파일입니다. </br>
 - [main.py](https://github.com/CNUPiedPiper/HARU/blob/master/src/main.py) - HARU를 실행하는 파일입니다. </br>
