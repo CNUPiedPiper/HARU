@@ -3,7 +3,7 @@ import wave
 from array import array
 import os
 import sys
-sys.path.append('/home/pi/prototype/src/speech_recognition')
+sys.path.append('/home/pi/HARU/src/speech_recognition')
 from transcribe_streaming import transcribe_streaming
 
 
