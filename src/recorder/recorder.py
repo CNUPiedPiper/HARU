@@ -3,8 +3,7 @@ import wave
 from array import array
 import os
 import sys
-sys.path.append('/home/pi/HARU/src/speech_recognition')
-from transcribe_streaming import transcribe_streaming
+from speech_recognition import transcribe_streaming
 
 
 # Set device number with get_dev_index.py.
