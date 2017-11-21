@@ -22,9 +22,9 @@ class Recorder:
 		def is_silent(data):
 			# When it's silent, max(data) tend to be 100~200
 			result = max(data) < self.THRESHOLD
-            self.THRESHOLD = self.THRESHOLD + 0.3 * (max(data) - self.THRESHOLD)
-            #print("THRESHOLD : " + str(self.THRESHOLD))
-            return result
+			self.THRESHOLD = self.THRESHOLD + 0.3 * (max(data) - self.THRESHOLD)
+			#print("THRESHOLD : " + str(self.THRESHOLD))
+			return result
 	
 		p = pyaudio.PyAudio()
 	
@@ -42,7 +42,7 @@ class Recorder:
 		frames = array('h')
 		minimum = 0
 		silent_counter = 0
-        MAX_FRAME_LENGTH = 230000
+		MAX_FRAME_LENGTH = 230000
 		
 		while True:
 			data = array('h', stream.read(self.CHUNK))
@@ -54,8 +54,8 @@ class Recorder:
 
 			# After 3 seconds
 			else:
-                #print("SILENT COUNTER : " + str(silent_counter))
-                #print("FRAME LENGTH : " + str(len(frames)))
+				#print("SILENT COUNTER : " + str(silent_counter))
+				#print("FRAME LENGTH : " + str(len(frames)))
 				silent = is_silent(data)
 
 				# If it is noisy
@@ -70,8 +70,8 @@ class Recorder:
 
 				# After a second, finish the recording
 				else:
-                    if len(frames) > MAX_FRAME_LENGTH: 
-                        frames = frames[:MAX_FRAME_LENGTH]
+					if len(frames) > MAX_FRAME_LENGTH: 
+						frames = frames[:MAX_FRAME_LENGTH]
 					break
 
 		print("[HARU] Recording is done")
