@@ -22,7 +22,9 @@ class Recorder:
 	def record_audio(self):
 		def is_silent(data):
 			# When it's silent, max(data) tend to be 100~200
-			return max(data) < self.THRESHOLD
+            result = max(data) < self.THRESHOLD
+            self.THRESHOLD = self.THRESHOLD + 0.3*(max(data) - self.THRESHOLD)
+			return result
 	
 		p = pyaudio.PyAudio()
 	
